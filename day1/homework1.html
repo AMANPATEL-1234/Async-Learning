@@ -5,8 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    #winner{font-size:45px;}
+     #container>div{height:100px;
+        width:100px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    background-color: rgb(78, 173, 214);
+margin:20px;}
+#winner{height:100px;width:100px;
+border:1px solid green;}</style>
 </head>
 <body>
+    <div id="winner"></div>
     
+    <div id="container">
+    <div id="member-1"><img id="myimg"/></div>
+    <div id="member-2" ><img id=myimg1/></div>
+    <div id="member-3"><img id="myimg"/></div>
+</div>
+    <button id="roll">ROLL THE DICE</button>
 </body>
-</html>
+
+<script>
+ document.querySelector("#roll").addEventListener("click",clickevent)
+
+ function clickevent(){
+   var rannum = Math.floor(Math.random() * 6) + 1;
+  var  para = document.getElementById("member-1");
+  para.innerText=rannum;
+  var rannum1 = Math.floor(Math.random() * 6) + 1;
+  var  para1 = document.getElementById("member-2");
+  para1.innerText=rannum1;
+   var rannum2 = Math.floor(Math.random() * 6) + 1;
+  var  para2 = document.getElementById("member-3");
+  para2.innerText=rannum2;
+
+  if(rannum>rannum1&&rannum>rannum2)
+  {document.getElementById("winner").style.backgroundColor="green";
+  document.getElementById("winner").innerText="div1";
+  document.getElementById("member-1").style.backgroundColor="green";
+  document.getElementById("member-1").innerText=rannum;
+
+ }
+ else if(rannum1>rannum&&rannum1>rannum2)
+  {document.getElementById("winner").style.backgroundColor="green";
+  document.getElementById("winner").innerText="div2";
+  document.getElementById("member-2").style.backgroundColor="green";
+  document.getElementById("member-2").innerText=rannum1;
+
+  }
+  else{
+  document.getElementById("winner").innerText="div3";
+  document.getElementById("winner").style.backgroundColor="green";
+  document.getElementById("member-3").style.backgroundColor="green";
+  document.getElementById("member-3").innerText=rannum2;
+  } 
+
+   if(rannum1>rannum&&rannum>rannum2||rannum1>rannum2&&rannum2>rannum||rannum2>rannum1&&rannum1>rannum)
+   {document.getElementById("member-2").style.backgroundColor="yellow"}
+
+  if(rannum1<rannum&&rannum<rannum2||rannum1<rannum2&&rannum2<rannum||rannum2<rannum1&&rannum1<rannum)
+  {document.getElementById("member-2").style.backgroundColor="red"}
+
+
+
+  if(rannum==rannum1&&rannum==rannum2||rannum1==rannum2&&rannum1==rannum||rannum2==rannum&&rannum2==rannum1)
+  {document.getElementById("member-1").style.backgroundColor="blue";
+  document.getElementById("member-2").style.backgroundColor="blue";
+  document.getElementById("member-3").style.backgroundColor="blue";
+}
+
+
+ }
+
+    </script>
