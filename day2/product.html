@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#container{display:grid;
+grid-template-columns:100px 100px 100px ;
+grid-template-rows:repeat(3,1fr);
+gap:10px;}
+img{height:100px;width:90%;}
+#com{text-align: justify;}
+    </style>
+</head>
+<body>
+    <div id="container">
+    </div>
+
+     <h2 id="com">0</h2>
+</body>
+</html>
+<script>
+   
+var getting=JSON.parse(localStorage.getItem("Products"))
+getting.forEach(function(el,index){
+    var div=document.createElement("div")
+    var tr1=document.createElement("h3");
+    tr1.innerText=el.productname
+    var tr2=document.createElement("h3")
+    tr2.innerText=el.category
+    var tr3=document.createElement("img")
+    tr3.setAttribute("src",el.imageurl)
+    
+    var tr4=document.createElement("h3")
+    tr4.innerText=el.price
+
+    var tr5=document.createElement("h3")
+    tr5.innerText=el.productname
+
+    var tr6=document.createElement("h3")
+    tr6.innerText=el.sold;
+var button=document.createElement("button")
+button.innerText="Remove";
+button.addEventListener("click",function(){
+    deletefun(el,index)
+})
+var button1=document.createElement("button")
+button1.innerText="sold";
+button1.addEventListener("click",function(){
+    soldfun(ele,index)
+  
+})
+ div.append( tr1,tr2,tr3,tr4,tr5,tr6,button,button1)
+ document.querySelector("#container").append(div)
+
+ coun();
+})
+    
+function deletefun(elem,index){
+getting.splice(index,1);
+localStorage.setItem("Products",JSON.stringify(getting));
+window.location.reload()
+}
+
+function soldfun(){
+alert("sold");
+}
+
+    function coun(){
+        var count=0
+        count++;
+ var counts=document.getElementById("com").innerText=count;
+    }
+
+</script>
