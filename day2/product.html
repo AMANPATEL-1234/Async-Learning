@@ -48,10 +48,7 @@ button.addEventListener("click",function(){
 })
 var button1=document.createElement("button")
 button1.innerText="sold";
-button1.addEventListener("click",function(){
-    soldfun(ele,index)
-  
-})
+button1.addEventListener("click",soldfun)
  div.append( tr1,tr2,tr3,tr4,tr5,tr6,button,button1)
  document.querySelector("#container").append(div)
 
