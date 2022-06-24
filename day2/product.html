@@ -22,7 +22,7 @@ img{height:100px;width:90%;}
 </body>
 </html>
 <script>
-   var button1=document.createElement("button")
+  
 var getting=JSON.parse(localStorage.getItem("Products"))
 getting.forEach(function(el,index){
     var div=document.createElement("div")
@@ -47,7 +47,7 @@ button.setAttribute("id","Remove")
 button.addEventListener("click",function(){
     deletefun(el,index)
 })
-
+var button1=document.createElement("button")
 button1.innerText="sold";
 button1.addEventListener("click",soldfun)
  div.append( tr1,tr2,tr3,tr4,tr5,tr6,button,button1)
@@ -64,7 +64,6 @@ window.location.reload()
 
 function soldfun(){
 alert("sold");
-button1.style.backgroundColor="green";
 }
 
     function coun(){

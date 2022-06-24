@@ -7,6 +7,56 @@
     <title>Document</title>
 </head>
 <body>
-    
+   <h2>Plz check console for your answer</h2>
 </body>
 </html>
+<script>
+  
+//by object.create method
+let automobile={
+  brand:"Bajaj",
+  wheels:"4",
+  engine:"WZOX34",
+}
+let car1=Object.create(automobile);
+car1.price="Rs120000"
+console.log(car1)
+let car2=Object.create(automobile);
+car2.price="Rs1200000"
+console.log(car2);
+
+//by constructor function
+
+function constr(){
+  this.brand="Bajaj";
+  this.wheels="4";
+  this.engine="WZOX34"
+
+}
+constr.prototype.price=function(b){
+  this.price=b;
+}
+let car3=new constr();
+car3.price("230000Rs")
+console.log(car3);
+let car4=new constr();
+car4.price("240000Rs")
+console.log(car4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
