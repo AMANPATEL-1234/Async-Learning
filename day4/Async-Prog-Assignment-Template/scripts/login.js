@@ -5,8 +5,10 @@ function signfunction(){
     event.preventDefault()
     let nam=document.getElementById("name").value;
     let pass=document.getElementById("passw").value;
-
-if(nam===getdata.name &&pass===getdata.password){
+if(getdata===null){
+    alert("plz create account")
+}
+else if(nam===getdata.name &&pass===getdata.password){
 alert("Sign Successfull");
 window.location.href="index.html";
 
