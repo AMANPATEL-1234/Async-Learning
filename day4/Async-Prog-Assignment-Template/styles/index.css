@@ -1,0 +1,14 @@
+#navbar{display:flex;
+    justify-content:end;
+    gap:9px;
+    padding:1%;
+background-color:rgb(99, 99, 121);}
+a{text-decoration:none;
+color:white;}
+h2{text-align: center;}
+#slideshow{height:300px;
+    margin-top:11px;
+    margin:auto;
+width:90%;}
+img{height:99%;
+width:100%;}
