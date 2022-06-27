@@ -6,9 +6,16 @@ background-color:rgb(99, 99, 121);}
 a{text-decoration:none;
 color:white;}
 h2{text-align: center;}
-#slideshow{height:300px;
+#slideshow{height:350px;
     margin-top:11px;
-    margin:auto;
+    margin-left:auto;
+width:80%;}
+#row{height:98%;
 width:90%;}
-img{height:99%;
+#movies{display:grid;
+    grid-template-columns:350px 350px 350px ;
+    grid-template-rows:repeat(3,1fr);
+    gap:14px;
+margin-left:250px;}
+#myimg{height:70%;
 width:100%;}
