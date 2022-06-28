@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+Food1: <img src="hhsah" id="img"/>
+Food2:<input type="checkbox" id="img1"/>
+    <button onclick="myfunction()">Order food</button> 
+</body>
+</html>
+<script>
+let images=document.getElementById("img");
+let imag=document.getElementById("img1");
+
+function myfunction(){
+
+function test(){
+return true;
+}
+let conte=test()
+
+let content=new Promise(function(resolve,notresolve){
+setTimeout(function(){
+    if(conte)
+    {resolve("img loaded")}
+    else{notresolve("some error is there")}
+
+},5000)
+
+})
+
+content.then(function(value){
+   images.src="https://i.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp"
+   imag.src="https://i.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp"
+});
+
+content.catch(function(err){
+    console.log(err);
+})
+
+
+
+}
+
+
+</script>
