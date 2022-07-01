@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{background-color: blue;
+    }
+    img{margin-left:24%;
+    margin-top:4%}
+    h3{margin-left:440px;
+    color:white;
+    font-size:24px;}
+    #pay{margin-left:630px;
+    margin-bottom:100px;}
+    </style>
+</head>
+<body id="trr">
+    <img src="https://www.consumercomplaints.in/thumb.php?bname=1&src=phonepe.png&wmax=900&hmax=900&quality=90&nocrop=1"
+    id="img"  />
+    <h3 id="pay">Processing....</h3>
+</body>
+</html>
+<script>
+let myimage=document.getElementById('img')
+ function check(){
+return true;
+}
+let a=new Promise(function(resolve,reject){
+var content=check()
+setTimeout(function(){
+    if(content)
+{resolve("Congrulations payment Successful")
+}
+else
+{reject("payment unsuccessful")}
+ },4000)
+})
+a.then(function(el)
+{console.log(el);
+    document.getElementById("trr").style.backgroundColor="white"
+    document.getElementById("pay").innerText="Transaction Successful"
+    document.getElementById("pay").style.color="green"
+ myimage.setAttribute("src","https://www.legalraasta.com/wp-content/uploads/2017/06/legalraasta.gif")
+})
+a.catch(function(err){
+    console.log(err);
+    document.getElementById("trr").style.backgroundColor="white"
+    document.getElementById("pay").innerText="Transaction Unsuccessful"
+    myimage.setAttribute("src","https://image.shutterstock.com/image-vector/crossmark-icon-vector-decline-cross-260nw-1775544383.jpg")
+    
+})
+
+</script>
