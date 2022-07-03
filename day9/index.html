@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #movie{padding:5px;}
+    #container{border:1px solid blue;
+    height:510px;
+    overflow:scroll;
+    width:1000px;}
+    img{width:100px;
+    height:100px;}
+    .movir{display:flex;
+    align-items: center;
+    gap:5px;}
+</style>
+<body>
+    <input oninput="debounce(main,1000)" placeholder="enter movie" type="text" id="movie"/>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+ async function main(){
+let query=document.getElementById("movie").value;
+ let demo=await myfunction(query);
+append(demo)
+}
+async function myfunction(query){
+let url=`http://www.omdbapi.com/?apikey=70c54fdf&s=${query}`;
+let res=await fetch(url);
+let deta=await res.json();
+return deta.Search; 
+}
+
+function append(data){
+    if(data==undefined){
+        return false;
+    }
+data.forEach(function(el){
+let cont=document.querySelector("#container");
+//cont.innerHTML=null;
+let div=document.createElement("div");
+div.setAttribute("class","movir")
+let a=document.createElement("img");
+a.setAttribute("src",el.Poster)
+let b=document.createElement("h2");
+b.innerText=el.Title;
+div.append(a,b);
+cont.append(div)
+})
+}
+
+let id;
+function debounce(func,delay){
+    if(id){
+        clearTimeout(id)
+    }
+  id=setTimeout(function(){
+    func();
+  },delay);
+}
+</script>
