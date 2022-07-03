@@ -44,6 +44,9 @@ data.forEach(function(el){
 let cont=document.querySelector("#container");
 //cont.innerHTML=null;
 let div=document.createElement("div");
+div.addEventListener("click",function(){
+    results(el)
+})
 div.setAttribute("class","movir")
 let a=document.createElement("img");
 a.setAttribute("src",el.Poster)
@@ -62,5 +65,11 @@ function debounce(func,delay){
   id=setTimeout(function(){
     func();
   },delay);
+}
+let bookmarksarr=[]
+function results(el){
+bookmarksarr.push(el)
+localStorage.setItem("moviesdata",JSON.stringify(bookmarksarr))
+window.location.href="moviesdata.html"
 }
 </script>

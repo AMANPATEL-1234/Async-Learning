@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="trending.html"></a></h1>
+    <div id="mymovies"></div>
+</body>
+</html>
+<script>
+let getdata=JSON.parse(localStorage.getItem("moviesdata"))
+function start(){
+getdata.forEach(function(el){
+let conts=document.getElementById("mymovies");
+let div=document.createElement("div");
+let a=document.createElement("img");
+a.setAttribute("src",el.Poster)
+let b=document.createElement("h2")
+b.innerText=el.Year;
+let c=document.createElement("h2");
+c.innerText=el.Title;
+let d=document.createElement("h2");
+d.innerText=el.Type;
+let e=document.createElement("h2");
+e.innerText=el.imdbID;
+div.append(a,b,c,d,e);
+conts.append(div);
+})
+}
+start()
+</script>
