@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color:rgba(0, 0, 0, 0.381);}
+        #cont{display:flex;
+        margin-left:250px}
+        #cont>div{margin:9px;}
+    </style>
+</head>
+<body onload="geolocation()">
+    <div id="cont"></div>
+    
+</body>
+</html>
+<script>
+async function myfunction(){
+let url=`https://weatherdbi.herokuapp.com/data/weather/london`
+let a=await fetch(url);
+let data=await a.json();
+console.log(data.next_days);
+append(data.next_days)
+}
+myfunction()
+
+function append(data){
+data.forEach(function(el){
+let cont=document.getElementById("cont")
+let div=document.createElement("div");
+let a=document.createElement("h2");
+a.innerText=el.day;
+let b=document.createElement("img")
+b.setAttribute("src",el.iconURL)
+let c=document.createElement("h4")
+c.innerText=el.max_temp.c+"°";
+let d=document.createElement("h4")
+d.innerText=el.min_temp.c+"°";
+div.append(a,b,c,d);
+cont.append(div);
+})
+}
+
+function geolocation(){
+navigator.geolocation.getCurrentPosition(success);
+function success(pos) {
+  const crd = pos.coords;
+  console.log('Your current position is:');
+  console.log(`Latitude : ${crd.latitude}`);
+  console.log(`Longitude: ${crd.longitude}`);
+  console.log(`More or less ${crd.accuracy} meters.`);
+ geofunction(crd.latitude,crd.longitude)
+}
+}
+
+async function geofunction(lat,lon){
+        let url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=4f8840f0606a31d02b362dc8712a190f`;
+        let data=await fetch(url)
+        let respo=await data.json();
+         append(respo) }
+
+</script>
