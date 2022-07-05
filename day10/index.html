@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         body{background-color: rgba(230, 224, 224, 0.779);}
-        button{height:35px;
+       #but{height:35px;
         background-color:rgb(163, 230, 9);}
         #git{height:89px;width:100%}
         #navbar{height:90px;
@@ -29,7 +29,8 @@ padding:8px}
     <div id="navbar">
     <div><img id="git" src="https://logodownload.org/wp-content/uploads/2014/10/youtube-logo-0.png"/></div>
     <div><input type="text" id="query"/>
-    <button onclick="search()">Search</button></div></div>
+    <button id="but" onclick="search()">Search</button></div></div>
+    <button onclick="getdata()">sort</button>
     <div id="container"></div>
     
 </body>
@@ -96,5 +97,15 @@ div.append(a,b);
 cont.append(div)
 })
 }
+
+
+let filter = async () => {
+  let data = await getData(q);
+  data = data.filter((el) => {
+    return el.snippet.channelId === "UCvC4D8onUfXzvjTOM-dBfEA";
+  });
+  append(data);
+};
+
 
 </script>
