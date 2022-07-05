@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color: rgba(230, 224, 224, 0.779);}
+        button{height:35px;
+        background-color:rgb(163, 230, 9);}
+        #git{height:89px;width:100%}
+        #navbar{height:90px;
+            width:98%;
+        display:flex;
+    justify-content:space-evenly;}
+        #container{
+            margin-top:10px;
+            display:grid;
+        grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,auto);
+gap:10px;}
+#query{margin-top:28px;
+width:800px;
+padding:8px}
+    </style>
+</head>
+<body>
+    <div id="navbar">
+    <div><img id="git" src="https://logodownload.org/wp-content/uploads/2014/10/youtube-logo-0.png"/></div>
+    <div><input type="text" id="query"/>
+    <button onclick="search()">Search</button></div></div>
+    <div id="container"></div>
+    
+</body>
+</html>
+<script>
+//let apikey="AIzaSyDpSftohB-WwUJpWv7_W53qUaICTCBbJAE";
+
+let search=()=>{
+let query=document.getElementById("query").value;
+getdata(query);
+}
+
+let getdata=async(query)=>{
+let url1=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=24&q=${query}&key=AIzaSyDpSftohB-WwUJpWv7_W53qUaICTCBbJAE`
+let res=await fetch(url1)
+let data=await res.json();
+append(data.items);
+}
+
+let append=(data)=>{
+ let cont=document.getElementById("container");
+container.innerHTML=null;
+data.forEach(function(el){
+let div=document.createElement("div");
+div.setAttribute("class","video");
+div.addEventListener("click",function(){
+    savevideo(el);
+})
+let a=document.createElement("img");
+a.setAttribute("src",el.snippet.thumbnails.medium.url);
+let b=document.createElement("h3");
+b.innerText=el.snippet.title;
+div.append(a,b);
+cont.append(div);
+
+})
+}
+let savevideo=(data)=>{
+localStorage.setItem("video",JSON.stringify(data));
+window.location.href="video.html";
+}
+
+
+async function popular(){
+let url=`http://www.omdbapi.com/?apikey=70c54fdf&s=popular`;
+let res=await fetch(url);
+let deta=await res.json();
+appends(deta.Search)}
+popular();
+
+function appends(data){
+    if(data==undefined){
+        return false;}
+let cont=document.querySelector("#container");
+cont.innerHTML=null;
+data.forEach(function(el){
+let div=document.createElement("div");
+div.setAttribute("class","movir")
+let a=document.createElement("img");
+a.setAttribute("src",el.Poster)
+let b=document.createElement("h2");
+b.innerText=el.Title;
+div.append(a,b);
+cont.append(div)
+})
+}
+
+</script>
