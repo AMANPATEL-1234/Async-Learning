@@ -40,9 +40,9 @@ function append(data){
     if(data==undefined){
         return false;
     }
-data.forEach(function(el){
 let cont=document.querySelector("#container");
-//cont.innerHTML=null;
+cont.innerHTML=null;
+data.forEach(function(el){
 let div=document.createElement("div");
 div.addEventListener("click",function(){
     results(el)

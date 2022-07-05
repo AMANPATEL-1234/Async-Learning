@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="playvideo()">
+<h1>play video</h1>
+<iframe width="560" 
+height="315"
+id="playvideo"
+ title="YouTube video player"
+  frameborder="0"
+   allow="accelerometer;
+   autoplay; clipboard-write; encrypted-media;
+    gyroscope; picture-in-picture"
+ allowfullscreen></iframe>
+</body>
+</html>
+<script>
+
+
+let playvideo=()=>{
+let video=JSON.parse(localStorage.getItem("video"));
+let id=video.id.videoId;
+let play=document.getElementById("playvideo");
+ play.src=`https://www.youtube.com/embed/${id}`;
+
+}  
+
+
+</script>
