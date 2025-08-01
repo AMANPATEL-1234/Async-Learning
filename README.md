@@ -52,9 +52,9 @@ This repository will include:
 | Module | Topics | Status |
 |--------|--------|--------|
 | HTML & CSS | Structure, Styling, Layout | ✅ Completed |
-| JavaScript | Basics to ES6+, DOM, Events | 
-| React.js | Components, Hooks, Routing 
-| Backend (Node + Express) | APIs, Auth |
-| MongoDB | CRUD operations, Integration |
+| JavaScript | Basics to ES6+, DOM, Events | ✅ Completed |
+| React.js | Components, Hooks, Routing | ✅ Completed |
+| Backend (Node + Express) | APIs, Auth | ✅ Completed |
+| MongoDB | CRUD operations, Integration | ✅ Completed |
 
 ⭐️ *If you find this repository helpful or inspiring, feel free to star it!*
